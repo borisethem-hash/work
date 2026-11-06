@@ -1,0 +1,8 @@
+#!/bin/sh
+# Block the push if the production build (incl. TypeScript checks) fails.
+echo "[pre-push] Running production build check..."
+npm run build --silent > /dev/null 2>&1 || {
+  echo "[pre-push] Build failed. Run 'npm run build' to see the errors. Push aborted."
+  exit 1
+}
+echo "[pre-push] Build OK."

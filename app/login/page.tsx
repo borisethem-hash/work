@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useStore } from "@/lib/store";
 import { DEMO_ACCOUNTS } from "@/lib/seed";
-import { IconLogin } from "@/components/Icons";
+import { IconChevronLeft, IconLogin } from "@/components/Icons";
 
 function HeroIllustration() {
   return (
@@ -88,13 +89,13 @@ export default function LoginPage() {
   return (
     <div className="login-page">
       <section className="login-hero">
-        <div className="brand" style={{ padding: 0 }}>
+        <Link href="/" className="brand" style={{ padding: 0, color: "#fff", textDecoration: "none" }}>
           <div className="brand-mark">K</div>
           <div>
             <div className="brand-name">KinTrack</div>
             <div className="brand-sub">クラウド勤怠管理</div>
           </div>
-        </div>
+        </Link>
         <h1>
           毎日の打刻から月次集計まで。
           <br />
@@ -116,6 +117,9 @@ export default function LoginPage() {
 
       <section className="login-side">
         <div className="login-box">
+          <Link href="/" className="btn btn-sm btn-ghost" style={{ marginLeft: -10, marginBottom: 12 }}>
+            <IconChevronLeft size={15} /> トップページへ戻る
+          </Link>
           <h2>ログイン</h2>
           <p className="text-2" style={{ marginTop: 0, marginBottom: 20 }}>
             アカウント情報を入力してください
